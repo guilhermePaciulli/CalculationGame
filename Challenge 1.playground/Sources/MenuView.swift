@@ -9,8 +9,6 @@ public class MenuView : UIView {
     
     var play: UILabel
     
-    var info: UILabel
-    
     public override init(frame: CGRect) {
         let font = UIFont(name: "Chalkduster", size: CGFloat(integerLiteral: 20))
         
@@ -24,18 +22,12 @@ public class MenuView : UIView {
         self.play.backgroundColor = UIColor.white.withAlphaComponent(0)
         play.text = "Play"
         
-        self.info = UILabel(frame: CGRect(x: 90, y: 290, width: 100, height: 40))
-        self.info.font = font
-        self.info.textColor = UIColor.yellow
-        self.info.backgroundColor = UIColor.white.withAlphaComponent(0)
-        info.text = "Highscore"
 
         super.init(frame: frame)
         
         self.addSubview(bg)
         self.addSubview(title)
         self.addSubview(play)
-        self.addSubview(info)
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -47,10 +39,6 @@ public class MenuView : UIView {
 
         if(play.frame.contains(loc!)) {
             GameController.this?.changeView(view: DifficultySelection(frame: self.frame))
-        }
-        
-        if(info.frame.contains(loc!)) {
-            print("Info")
         }
     }
     

@@ -10,7 +10,6 @@ public class EndGame : UIView {
     var pointsLabel: UILabel
     
     var backToMainMenu: UILabel
-
     
     public override init(frame: CGRect) {
         let font20 = UIFont(name: "Chalkduster", size: CGFloat(integerLiteral: 20))
@@ -41,7 +40,7 @@ public class EndGame : UIView {
         self.pointsLabel.textColor = UIColor.yellow
         self.pointsLabel.backgroundColor = UIColor.white.withAlphaComponent(0)
         self.pointsLabel.textAlignment = NSTextAlignment.center
-        self.pointsLabel.text = "You made "+String(describing: points) + " points"
+        self.pointsLabel.text = "You made "+String(describing: points!) + " points"
         
         self.backToMainMenu = UILabel(frame: CGRect(x: 70, y: 360, width: 100, height: 30))
         self.backToMainMenu.font = font15
