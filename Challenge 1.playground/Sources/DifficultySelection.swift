@@ -29,7 +29,7 @@ public class DifficultySelection : UIView {
         self.easy.backgroundColor = UIColor.white.withAlphaComponent(0)
         easy.text = "Easy"
         
-        self.medium = UILabel(frame: CGRect(x: 90, y: 290, width: 150, height: 40))
+        self.medium = UILabel(frame: CGRect(x: 70, y: 290, width: 150, height: 40))
         self.medium.font = font
         self.medium.textColor = UIColor.yellow
         self.medium.backgroundColor = UIColor.white.withAlphaComponent(0)
