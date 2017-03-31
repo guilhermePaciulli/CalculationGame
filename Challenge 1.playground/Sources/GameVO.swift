@@ -27,28 +27,61 @@ public class RoundVO {
             max = 0
         }
         
-        self.firstNumber = Int(arc4random_uniform(UInt32(max)))
-        self.secondNumber = Int(arc4random_uniform(UInt32(max)))
-        
-        let o = Int(arc4random_uniform(UInt32(3)))
+        let o = Int(arc4random_uniform(UInt32(4)))
         
         if(o == 1) {
             self.operation = " + "
+            
+            self.firstNumber = Int(arc4random_uniform(UInt32(max)))
+            self.secondNumber = Int(arc4random_uniform(UInt32(max)))
+            
+            while(self.firstNumber == 0 || self.secondNumber == 0) {
+                self.firstNumber = Int(arc4random_uniform(UInt32(max)))
+                self.secondNumber = Int(arc4random_uniform(UInt32(max)))
+            }
+            
             numbers.append(String(describing: firstNumber! + secondNumber!))
-            self.right = numbers.last
         } else if(o == 2) {
             self.operation = " - "
+            
+            self.firstNumber = Int(arc4random_uniform(UInt32(max)))
+            self.secondNumber = Int(arc4random_uniform(UInt32(max)))
+            
+            while(self.firstNumber == 0 || self.secondNumber == 0) {
+                self.firstNumber = Int(arc4random_uniform(UInt32(max)))
+                self.secondNumber = Int(arc4random_uniform(UInt32(max)))
+            }
+            
             numbers.append(String(describing: firstNumber! - secondNumber!))
-            self.right = numbers.last
+        } else if(o == 3) {
+            self.operation = " / "
+            
+            self.secondNumber = Int(arc4random_uniform(UInt32(Double(max) * 0.7)))
+            var answer = Int(arc4random_uniform(UInt32(Double(max) * 0.7)))
+            while(answer == 0) {
+                answer = Int(arc4random_uniform(UInt32(Double(max) * 0.7)))
+            }
+            self.firstNumber = self.secondNumber! * answer
+            
+            numbers.append(String(describing: answer))
         } else {
+            self.operation = " * "
+            
             self.firstNumber = Int(arc4random_uniform(UInt32(max / 2)))
             self.secondNumber = Int(arc4random_uniform(UInt32(max / 2)))
             
-            self.operation = " * "
+            while(self.firstNumber == 0 || self.secondNumber == 0) {
+                self.firstNumber = Int(arc4random_uniform(UInt32(max / 2)))
+                self.secondNumber = Int(arc4random_uniform(UInt32(max / 2)))
+            }
+            
             numbers.append(String(describing: firstNumber! * secondNumber!))
-            self.right = numbers.last
         }
+
+        self.right = numbers.last
+
         generateNumbers()
+        
         numbers.shuffle()
     }
     
