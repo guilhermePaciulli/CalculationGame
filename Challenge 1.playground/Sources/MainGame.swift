@@ -109,7 +109,7 @@ public class MainGame : UIView {
     
     public func blinkScreen(isRed: Bool) {
         let v = UIView(frame: self.frame)
-        v.backgroundColor = isRed ? UIColor.red : UIColor.green
+        v.backgroundColor = round > maxRounds! ? (isRed ? UIColor.red : UIColor.green) : UIColor.yellow
         v.alpha = 1
         v.layer.zPosition = 1
         self.addSubview(v)

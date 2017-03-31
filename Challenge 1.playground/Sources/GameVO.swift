@@ -20,9 +20,9 @@ public class RoundVO {
         case "easy":
             max = 10
         case "medium":
-            max = 20
+            max = 15
         case "hard":
-            max = 30
+            max = 20
         default:
             max = 0
         }
@@ -41,6 +41,9 @@ public class RoundVO {
             numbers.append(String(describing: firstNumber! - secondNumber!))
             self.right = numbers.last
         } else {
+            self.firstNumber = Int(arc4random_uniform(UInt32(max / 2)))
+            self.secondNumber = Int(arc4random_uniform(UInt32(max / 2)))
+            
             self.operation = " * "
             numbers.append(String(describing: firstNumber! * secondNumber!))
             self.right = numbers.last
