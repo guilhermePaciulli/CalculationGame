@@ -57,7 +57,7 @@ public class RoundVO {
             self.operation = " / "
             
             self.secondNumber = Int(arc4random_uniform(UInt32(Double(max) * 0.7)))
-            var answer = Int(arc4random_uniform(UInt32(Double(max) * 0.7)))
+            var answer = Int(arc4random_uniform(UInt32(Double(max) * 0.7))) + 1
             while(answer == 0) {
                 answer = Int(arc4random_uniform(UInt32(Double(max) * 0.7)))
             }
